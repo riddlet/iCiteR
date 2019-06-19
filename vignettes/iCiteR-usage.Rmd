@@ -32,8 +32,6 @@ get_metrics('27599104')
 The function also takes a vector of PMIDS:
 
 ```{r demonstration2}
-library(iCiteR)
-
 get_metrics(c('27599104', '27830815', '28968388', '28968381'))
 
 ```
@@ -41,8 +39,6 @@ get_metrics(c('27599104', '27830815', '28968388', '28968381'))
 If you would rather not have the results in a dataframe, it is possible to obtain an S3 object for the data by using the `icite_api` function
 
 ```{r demonstration3}
-library(iCiteR)
-
 dat <- icite_api('27599104')
 
 print(dat)

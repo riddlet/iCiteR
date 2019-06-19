@@ -1,0 +1,66 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+# iCiteR
+
+<!-- badges: start -->
+[![Build Status](https://travis-ci.org/riddlet/iCiteR.svg?branch=master)](https://travis-ci.org/riddlet/iCiteR)
+<!-- badges: end -->
+
+The iCiteR package is a minimal R package designed to help users retrieve data from the NIH's [iCite API](https://icite.od.nih.gov/api). 
+
+## Installation
+
+You can install the released version of iCiteR from [CRAN](https://CRAN.R-project.org) with:
+
+``` r
+install.packages("iCiteR")
+```
+
+And the development version from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("riddlet/iCiteR")
+```
+## Example
+
+There is just one function that will be of interest to most users: `get_metrics`. This function takes as input a a vector of pubmed IDs and returns all the information yielded by the iCite API.
+
+Likely, most users will already have the PMIDs that correspond to the articles for which they wish to obtain data. For a given article in pubmed, the ID is also printed on the page
+
+![The PMID for the Relative Citation Rate paper on Pubmed](vignettes/RCR_PMID.jpg)
+
+For a given PMID(s), one can get the relative citation rate and all other data returned by the iCite API as follows
+
+```{r example1}
+library(iCiteR)
+get_metrics('27599104')
+```
+
+The function also takes a vector of PMIDS:
+
+```{r exampl2}
+get_metrics(c('27599104', '27830815', '28968388', '28968381'))
+```
+
+If you would rather not have the results in a dataframe, it is possible to obtain an S3 object for the data by using the `icite_api` function
+
+```{r example3}
+dat <- icite_api('27599104')
+
+print(dat)
+```
+
+In that case, don't forget to commit and push the resulting figure files, so they display on GitHub!
