@@ -11,17 +11,16 @@ Status](https://travis-ci.org/riddlet/iCiteR.svg?branch=master)](https://travis-
 
 The iCiteR package is a minimal R package designed to help users
 retrieve data from the NIH’s [iCite API](https://icite.od.nih.gov/api).
+This includes the relative citation ratio, which you can read about
+[here](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002541).
 
 ## Installation
 
-You can install the released version of iCiteR from
-[CRAN](https://CRAN.R-project.org) with:
+iCiteR is not yet on [CRAN](https://CRAN.R-project.org), but will soon
+be (hopefully\!)
 
-``` r
-install.packages("iCiteR")
-```
-
-And the development version from [GitHub](https://github.com/) with:
+In the meantime, you can install the development version from
+[GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
@@ -157,7 +156,7 @@ print(dat)
 #> 
 #> $response
 #> Response [https://icite.od.nih.gov/api/pubs/27599104]
-#>   Date: 2019-06-19 19:45
+#>   Date: 2019-06-19 19:49
 #>   Status: 200
 #>   Content-Type: application/json; charset=UTF-8
 #>   Size: 588 B
@@ -176,6 +175,3 @@ print(dat)
 #> attr(,"class")
 #> [1] "icite_api"
 ```
-
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub\!
