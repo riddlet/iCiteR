@@ -1,0 +1,49 @@
+---
+title: "iCiteR-usage"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{iCiteR-usage}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+The iCiteR package is a minimal R package designed to help users retrieve data from the NIH's [iCite API](https://icite.od.nih.gov/api). There is just one function that will be of interest to most users: `get_metrics`. This function takes as input a a vector of pubmed IDs and returns all the information yielded by the iCite API.
+
+Likely, most users will already have the PMIDs that correspond to the articles for which they wish to obtain data. For a given article in pubmed, the ID is also printed on the page
+
+![The PMID for the Relative Citation Rate paper on Pubmed](RCR_PMID.jpg)
+
+For a given PMID(s), one can get the relative citation rate and all other data returned by the iCite API as follows
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r demonstration1}
+library(iCiteR)
+
+get_metrics('27599104')
+
+```
+
+The function also takes a vector of PMIDS:
+
+```{r demonstration2}
+library(iCiteR)
+
+get_metrics(c('27599104', '27830815', '28968388', '28968381'))
+
+```
+
+If you would rather not have the results in a dataframe, it is possible to obtain an S3 object for the data by using the `icite_api` function
+
+```{r demonstration3}
+library(iCiteR)
+
+dat <- icite_api('27599104')
+
+print(dat)
+```

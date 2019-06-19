@@ -13,5 +13,8 @@ Imports:
     httr (>= 1.4),
     jsonlite (>= 1.6)
 Suggests: 
-    testthat
+    testthat,
+    knitr,
+    rmarkdown
 RoxygenNote: 6.1.1
+VignetteBuilder: knitr

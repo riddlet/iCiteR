@@ -3,7 +3,7 @@
 #' \code{to_dataframe} converts the parsed json from icite_api into a dataframe
 #'
 #' @return All values from the icite_api reformatted into a dataframe.
-#' see https://icite.od.nih.gov/api for details.
+#' see \url{https://icite.od.nih.gov/api} for details.
 #'
 #' @keywords internal
 to_dataframe <- function (info, error = F) {
@@ -55,7 +55,7 @@ to_dataframe <- function (info, error = F) {
 #' @param pmids character. A vector of pubmed IDs
 #'
 #' @return All values from the icite_api reformatted into a dataframe.
-#' see https://icite.od.nih.gov/api for details.
+#' see \url{https://icite.od.nih.gov/api} for details.
 #'
 #' @examples
 #' get_metrics('27599104')

@@ -11,7 +11,7 @@ get_metrics(pmids)
 }
 \value{
 All values from the icite_api reformatted into a dataframe.
-see https://icite.od.nih.gov/api for details.
+see \url{https://icite.od.nih.gov/api} for details.
 }
 \description{
 \code{get_metrics} is the main function for iCiteR. It takes a vector
