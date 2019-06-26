@@ -4,7 +4,21 @@
 * win-builder (devel and release)
 
 ## R CMD check results
-There were no ERRORs or WARNINGs or NOTEs.
+There were no ERRORs or WARNINGs.
+
+There was 1 NOTE:
+
+* checking CRAN incoming feasibility ... NOTE
+Maintainer: 'Travis Riddle <travis.riddle@nih.gov>'
+
+New submission
+
+Possibly mis-spelled words in DESCRIPTION:
+  NIH's (2:30, 5:43)
+  api (7:13)
+  iCite (2:36, 5:49, 7:7)
+  pubmed (6:21)
+
 
 ## Downstream dependencies
 There are currently no downstreatm dependencies for this package.
