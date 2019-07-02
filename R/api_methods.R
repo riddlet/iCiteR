@@ -48,6 +48,10 @@ icite_api <- function (pmid) {
 #' A simple print method for the icite_api function
 #'
 #' \code{print.icite_api} prints the data returned from the icite_api function
+#'
+#' @param x S3. The S3 object yielded from \code{icite_api}
+#' @param ... Additional arguments that would be passed to \code{print}
+#'
 #' @examples
 #' dat <- icite_api('27599104')
 #' print(dat)

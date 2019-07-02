@@ -2,8 +2,8 @@
 #'
 #' \code{to_dataframe} converts the parsed json from icite_api into a dataframe
 #'
-#' @param info S3. The S3 object returned from `icite_api`
-#' @param error logical. Indicates whether the `icite_api` call resulted in an error.
+#' @param info S3. The S3 object returned from \code{icite_api}
+#' @param error logical. Indicates whether the \code{icite_api} call resulted in an error.
 #'
 #' @return All values from the icite_api reformatted into a dataframe.
 #' see \url{https://icite.od.nih.gov/api} for details.

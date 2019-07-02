@@ -6,6 +6,11 @@
 \usage{
 \method{print}{icite_api}(x, ...)
 }
+\arguments{
+\item{x}{S3. The S3 object yielded from \code{icite_api}}
+
+\item{...}{Additional arguments that would be passed to \code{print}}
+}
 \description{
 \code{print.icite_api} prints the data returned from the icite_api function
 }

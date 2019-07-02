@@ -1,3 +1,16 @@
+## Resubmission
+This is a resubmission. In this version I have:
+
+* Reformatted package, software, and API names in single quotes in the title and description in the DESCRIPTION file.
+
+* Elaborated on the information returned by the 'iCite' API in the descriptino text.
+
+* Registered the S3 print method in the NAMESPACE file.
+
+* Replaced T and F with TRUE and FALSE
+
+* Included the arguments for the to_dataframe function in the .Rd file.
+
 ## Test environments
 * local OS X install, R 3.5.3
 * ubuntu 14.04.5 (on travis-ci), R 3.6
