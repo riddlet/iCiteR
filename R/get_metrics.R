@@ -2,6 +2,9 @@
 #'
 #' \code{to_dataframe} converts the parsed json from icite_api into a dataframe
 #'
+#' @param info S3. The S3 object returned from `icite_api`
+#' @param error logical. Indicates whether the `icite_api` call resulted in an error.
+#'
 #' @return All values from the icite_api reformatted into a dataframe.
 #' see \url{https://icite.od.nih.gov/api} for details.
 #'
@@ -9,7 +12,7 @@
 to_dataframe <- function (info, error = F) {
 
   # If there's no error, return the data in a dataframe--------
-  if (error==F) {
+  if (error==FALSE) {
     parsed <- info$content
     out <- data.frame(pmid                        = parsed$pmid,
                       doi                         = parsed$doi,
@@ -28,7 +31,7 @@ to_dataframe <- function (info, error = F) {
   }
 
   # If there is an error, return NA's--------------------------
-  if (error==T) {
+  if (error==TRUE) {
     out <- data.frame(pmid                        = info,
                       doi                         = NA,
                       authors                     = NA,
@@ -49,7 +52,7 @@ to_dataframe <- function (info, error = F) {
 #' takes a vector of PMIDs and returns the icite information for them.
 #'
 #' \code{get_metrics} is the main function for iCiteR. It takes a vector
-#' of character pubmed ids and returns a dataframe of the information returned
+#' of character pubmed ids and returns a dataframe of the information yielded
 #' by the icite api.
 #'
 #' @param pmids character. A vector of pubmed IDs

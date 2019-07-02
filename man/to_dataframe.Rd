@@ -6,6 +6,11 @@
 \usage{
 to_dataframe(info, error = F)
 }
+\arguments{
+\item{info}{S3. The S3 object returned from `icite_api`}
+
+\item{error}{logical. Indicates whether the `icite_api` call resulted in an error.}
+}
 \value{
 All values from the icite_api reformatted into a dataframe.
 see \url{https://icite.od.nih.gov/api} for details.

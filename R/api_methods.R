@@ -48,8 +48,11 @@ icite_api <- function (pmid) {
 #' A simple print method for the icite_api function
 #'
 #' \code{print.icite_api} prints the data returned from the icite_api function
+#' @examples
+#' dat <- icite_api('27599104')
+#' print(dat)
 #' @importFrom utils str
-#' @keywords internal
+#' @export
 print.icite_api <- function (x, ...) {
   cat('<iCite ', x$path, '>\n', sep='')
   str(x$content)

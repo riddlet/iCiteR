@@ -9,4 +9,7 @@
 \description{
 \code{print.icite_api} prints the data returned from the icite_api function
 }
-\keyword{internal}
+\examples{
+dat <- icite_api('27599104')
+print(dat)
+}

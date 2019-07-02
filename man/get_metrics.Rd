@@ -15,7 +15,7 @@ see \url{https://icite.od.nih.gov/api} for details.
 }
 \description{
 \code{get_metrics} is the main function for iCiteR. It takes a vector
-of character pubmed ids and returns a dataframe of the information returned
+of character pubmed ids and returns a dataframe of the information yielded
 by the icite api.
 }
 \examples{

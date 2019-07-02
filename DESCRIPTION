@@ -1,10 +1,12 @@
 Package: iCiteR
-Title: Returns Data from the NIH's iCite API
+Title: Returns Data from the NIH's 'iCite' API
 Version: 0.1.0
 Authors@R: person("Travis", "Riddle", email = "travis.riddle@nih.gov", role = c("aut", "cre"))
-Description: A minimal wrapper around the NIH's iCite API (<https://icite.od.nih.gov/api>). 
+Description: A minimal wrapper around the NIH's 'iCite' API (<https://icite.od.nih.gov/api>). 
   Given a vector of pubmed IDs, this package returns a dataframe of the information yielded by
-  the iCite api.
+  the 'iCite' API. The primary metric yielded by 'iCite' is the paper's relative citation ratio,
+  but the API also returns other meta-data from the paper, including author names, publication
+  journal, publication year, paper title, doi, and a number of other citation metrics.
 Depends: R (>= 3.5)
 License: MIT + file LICENSE
 Encoding: UTF-8
