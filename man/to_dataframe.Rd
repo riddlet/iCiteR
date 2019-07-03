@@ -4,7 +4,7 @@
 \alias{to_dataframe}
 \title{Converts icite_api information into a dataframe}
 \usage{
-to_dataframe(info, error = F)
+to_dataframe(info, error = FALSE)
 }
 \arguments{
 \item{info}{S3. The S3 object returned from \code{icite_api}}
