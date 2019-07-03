@@ -9,7 +9,7 @@
 #' see \url{https://icite.od.nih.gov/api} for details.
 #'
 #' @keywords internal
-to_dataframe <- function (info, error = F) {
+to_dataframe <- function (info, error = FALSE) {
 
   # If there's no error, return the data in a dataframe--------
   if (error==FALSE) {
@@ -72,7 +72,7 @@ get_metrics <- function (pmids) {
       to_dataframe(icite_api(i))
     },
     error = function (err) {
-      return(to_dataframe(i, error=T))
+      return(to_dataframe(i, error=TRUE))
     })
     tempdat <- rbind(tempdat, out)
 
