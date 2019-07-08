@@ -16,10 +16,14 @@ This includes the relative citation ratio, which you can read about
 
 ## Installation
 
-iCiteR is not yet on [CRAN](https://CRAN.R-project.org), but will soon
-be (hopefully\!)
+iCiteR is on [CRAN](https://CRAN.R-project.org) and can be installed
+with:
 
-In the meantime, you can install the development version from
+``` r
+install.packages("iCiteR")
+```
+
+Or you can install the development version from
 [GitHub](https://github.com/) with:
 
 ``` r
@@ -46,6 +50,7 @@ other data returned by the iCite API as follows
 ``` r
 library(iCiteR)
 get_metrics('27599104')
+#> No encoding supplied: defaulting to UTF-8.
 #>       pmid                          doi
 #> 1 27599104 10.1371/journal.pbio.1002541
 #>                                                           authors
@@ -66,6 +71,10 @@ The function also takes a vector of PMIDS:
 
 ``` r
 get_metrics(c('27599104', '27830815', '28968388', '28968381'))
+#> No encoding supplied: defaulting to UTF-8.
+#> No encoding supplied: defaulting to UTF-8.
+#> No encoding supplied: defaulting to UTF-8.
+#> No encoding supplied: defaulting to UTF-8.
 #>       pmid                          doi
 #> 1 27599104 10.1371/journal.pbio.1002541
 #> 2 27830815              10.1038/539150a
@@ -108,70 +117,22 @@ to obtain an S3 object for the data by using the `icite_api` function
 
 ``` r
 dat <- icite_api('27599104')
+#> No encoding supplied: defaulting to UTF-8.
 
 print(dat)
-#> $content
-#> $content$pmid
-#> [1] 27599104
-#> 
-#> $content$doi
-#> [1] "10.1371/journal.pbio.1002541"
-#> 
-#> $content$authors
-#> [1] "B Ian Hutchins, Xin Yuan, James M Anderson, George M Santangelo"
-#> 
-#> $content$citation_count
-#> [1] 47
-#> 
-#> $content$citations_per_year
-#> [1] 15.66667
-#> 
-#> $content$expected_citations_per_year
-#> [1] 2.930151
-#> 
-#> $content$field_citation_rate
-#> [1] 6.943039
-#> 
-#> $content$is_research_article
-#> [1] TRUE
-#> 
-#> $content$journal
-#> [1] "PLoS Biol."
-#> 
-#> $content$nih_percentile
-#> [1] 94.3
-#> 
-#> $content$relative_citation_ratio
-#> [1] 5.34671
-#> 
-#> $content$title
-#> [1] "Relative Citation Ratio (RCR): A New Metric That Uses Citation Rates to Measure Influence at the Article Level."
-#> 
-#> $content$year
-#> [1] 2016
-#> 
-#> 
-#> $path
-#> [1] "api/pubs/27599104"
-#> 
-#> $response
-#> Response [https://icite.od.nih.gov/api/pubs/27599104]
-#>   Date: 2019-06-19 19:49
-#>   Status: 200
-#>   Content-Type: application/json; charset=UTF-8
-#>   Size: 588 B
-#> {
-#>     "pmid": 27599104, 
-#>     "doi": "10.1371/journal.pbio.1002541", 
-#>     "authors": "B Ian Hutchins, Xin Yuan, James M Anderson, George M San...
-#>     "citation_count": 47, 
-#>     "citations_per_year": 15.666667, 
-#>     "expected_citations_per_year": 2.930151, 
-#>     "field_citation_rate": 6.943039, 
-#>     "is_research_article": true, 
-#>     "journal": "PLoS Biol.", 
-#> ...
-#> 
-#> attr(,"class")
-#> [1] "icite_api"
+#> <iCite api/pubs/27599104>
+#> List of 13
+#>  $ pmid                       : int 27599104
+#>  $ doi                        : chr "10.1371/journal.pbio.1002541"
+#>  $ authors                    : chr "B Ian Hutchins, Xin Yuan, James M Anderson, George M Santangelo"
+#>  $ citation_count             : int 47
+#>  $ citations_per_year         : num 15.7
+#>  $ expected_citations_per_year: num 2.93
+#>  $ field_citation_rate        : num 6.94
+#>  $ is_research_article        : logi TRUE
+#>  $ journal                    : chr "PLoS Biol."
+#>  $ nih_percentile             : num 94.3
+#>  $ relative_citation_ratio    : num 5.35
+#>  $ title                      : chr "Relative Citation Ratio (RCR): A New Metric That Uses Citation Rates to Measure Influence at the Article Level."
+#>  $ year                       : int 2016
 ```

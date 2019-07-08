@@ -22,9 +22,13 @@ The iCiteR package is a minimal R package designed to help users retrieve data f
 
 ## Installation
 
-iCiteR is not yet on [CRAN](https://CRAN.R-project.org), but will soon be (hopefully!)
+iCiteR is on [CRAN](https://CRAN.R-project.org) and can be installed with:
 
-In the meantime, you can install the development version from [GitHub](https://github.com/) with:
+``` r
+install.packages("iCiteR")
+```
+
+Or you can install the development version from [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
