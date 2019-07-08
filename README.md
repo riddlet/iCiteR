@@ -50,7 +50,6 @@ other data returned by the iCite API as follows
 ``` r
 library(iCiteR)
 get_metrics('27599104')
-#> No encoding supplied: defaulting to UTF-8.
 #>       pmid                          doi
 #> 1 27599104 10.1371/journal.pbio.1002541
 #>                                                           authors
@@ -71,10 +70,6 @@ The function also takes a vector of PMIDS:
 
 ``` r
 get_metrics(c('27599104', '27830815', '28968388', '28968381'))
-#> No encoding supplied: defaulting to UTF-8.
-#> No encoding supplied: defaulting to UTF-8.
-#> No encoding supplied: defaulting to UTF-8.
-#> No encoding supplied: defaulting to UTF-8.
 #>       pmid                          doi
 #> 1 27599104 10.1371/journal.pbio.1002541
 #> 2 27830815              10.1038/539150a
@@ -117,7 +112,6 @@ to obtain an S3 object for the data by using the `icite_api` function
 
 ``` r
 dat <- icite_api('27599104')
-#> No encoding supplied: defaulting to UTF-8.
 
 print(dat)
 #> <iCite api/pubs/27599104>
@@ -136,3 +130,25 @@ print(dat)
 #>  $ title                      : chr "Relative Citation Ratio (RCR): A New Metric That Uses Citation Rates to Measure Influence at the Article Level."
 #>  $ year                       : int 2016
 ```
+
+If you are having trouble accessing the data for a particular PMID, the
+`icite_api` function will also return somewhat more informative error
+messages (development version only):
+
+``` r
+icite_api('42')
+#> Error in icite_api("42"): 
+#>         iCite API request failed [404] : no data on PMID '42'
+#> 
+#> 
+#>         Check your pubmed ID. iCite provides citation data back to 1995, and
+#>         recent papers may not be available. See https://icite.od.nih.gov/stats
+#>         and https://icite.od.nih.gov/help for details of the available data.
+#> 
+```
+
+It is worth noting that the iCite database presently goes back to 1995.
+Earlier papers will not have any data associated with them. Also, recent
+papers may not be available. See <https://icite.od.nih.gov/stats> and
+<https://icite.od.nih.gov/help> for details of the iCite system that
+this package works with.
