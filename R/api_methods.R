@@ -20,18 +20,29 @@ icite_api <- function (pmid) {
   if (httr::http_type(resp) != 'application/json') {
     stop('API did not return json.', call. = FALSE)
   }
-  parsed <- jsonlite::fromJSON(httr::content(resp, 'text'), simplifyVector=FALSE)
+  parsed <-
+    jsonlite::fromJSON(httr::content(resp, 'text', encoding = 'UTF-8'),
+                       simplifyVector = FALSE)
 
-  # If the request fials, print the reason -------------------
+  # If the request fails, print the reason -------------------
   if (httr::http_error(resp)) {
-    stop(
+    stop(if (resp$status_code == 404) {
       sprintf(
-        "iCite API request failed [%s]\n%s",
+        "
+        iCite API request failed [%s] : %s\n\n
+        Check your pubmed ID. iCite provides citation data back to 1995, and
+        recent papers may not be available. See https://icite.od.nih.gov/stats
+        and https://icite.od.nih.gov/help for details of the available data.
+        ",
         httr::status_code(resp),
         parsed$error
-      ),
+      )
+    } else{
+      sprintf("iCite API request failed [%s]\n%s",
+              httr::status_code(resp),
+              parsed$error)
       call. = FALSE
-    )
+    })
   }
 
   # structure the content of the response --------------------

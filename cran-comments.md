@@ -1,7 +1,7 @@
 ## Resubmission
 This is a resubmission. In this version I have:
 
-* Replaced T and F with TRUE and FALSE
+* Added some additional information to the error messagers
 
 ## Test environments
 * local OS X install, R 3.5.3
