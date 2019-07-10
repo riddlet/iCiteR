@@ -2,27 +2,31 @@
 #'
 #' \code{icite_api} returns the parsed results of a single call to the iCite api
 #'
-#' @param pmid character. The pubmed ID to be queried
+#' @param pmid character vector. The pubmed ID to be queried
 #'
 #' @return If the call runs without error, the output is a simple S3 object
 #' @examples
 #' dat <- icite_api('27599104')
 #' print(dat)
 #' @export
-icite_api <- function (pmid) {
+icite_api <- function (pmids) {
+  # include integer IDs
+  pmids_valid = na.omit(as.integer(pmids))
+  if (length(pmids_valid) == 0) {
+    stop("No valid pubmed IDs detected. Please provide integer values, or
+         their character representation. Try: 27599104")
+  }
 
   # construct the API query ----------------------------------
-  pth <- paste('api/pubs/', pmid, sep='')
+  pth <- paste0('api/pubs?pmids=', paste(pmids_valid, collapse=","), "&format=csv")
   url <- httr::modify_url('https://icite.od.nih.gov/', path=pth)
   resp <- httr::GET(url)
 
-  # If json is returned, parse it ----------------------------
-  if (httr::http_type(resp) != 'application/json') {
-    stop('API did not return json.', call. = FALSE)
+  # If csv is returned, parse it ----------------------------
+  if (httr::http_type(resp) != 'text/csv') {
+    stop('API did not return csv.', call. = FALSE)
   }
-  parsed <-
-    jsonlite::fromJSON(httr::content(resp, 'text', encoding = 'UTF-8'),
-                       simplifyVector = FALSE)
+  parsed <- read.csv(textConnection(httr::content(resp, 'text', encoding = 'UTF-8')), stringsAsFactors = F, encoding = "UTF-8")
 
   # If the request fails, print the reason -------------------
   if (httr::http_error(resp)) {
