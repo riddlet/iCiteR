@@ -55,12 +55,12 @@ get_metrics <- function (pmids) {
   # split into chunks of 200 pmids ----------------------------
   chunk_size = 200
   n_iterations = ceiling(length(pmids) / chunk_size)
-  if (n_iterations > 1) pb = txtProgressBar(label="Accessing iCite API:", style=3)
+  if (n_iterations > 1) pb = utils::txtProgressBar(label="Accessing iCite API:", style=3)
 
   # make empty dataframe to catch results ---------------------
   tempdat <- data.frame()
   for (i in 0:(n_iterations - 1)) {
-    if (n_iterations > 1) setTxtProgressBar(pb, i / (n_iterations - 1))
+    if (n_iterations > 1) utils::setTxtProgressBar(pb, i / (n_iterations - 1))
     start = 1 + i * chunk_size
     end = min(length(pmids), chunk_size * (i + 1))
     out <- tryCatch( {

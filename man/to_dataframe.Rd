@@ -16,6 +16,6 @@ All values from the icite_api reformatted into a dataframe.
 see \url{https://icite.od.nih.gov/api} for details.
 }
 \description{
-\code{to_dataframe} converts the parsed json from icite_api into a dataframe
+\code{to_dataframe} converts the parsed csv from icite_api into a dataframe
 }
 \keyword{internal}
