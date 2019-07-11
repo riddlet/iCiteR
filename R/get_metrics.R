@@ -1,6 +1,6 @@
 #' Converts icite_api information into a dataframe
 #'
-#' \code{to_dataframe} converts the parsed json from icite_api into a dataframe
+#' \code{to_dataframe} converts the parsed csv from icite_api into a dataframe
 #'
 #' @param info S3. The S3 object returned from \code{icite_api}
 #' @param error logical. Indicates whether the \code{icite_api} call resulted in an error.
@@ -13,20 +13,7 @@ to_dataframe <- function (info, error = FALSE) {
 
   # If there's no error, return the data in a dataframe--------
   if (error==FALSE) {
-    parsed <- info$content
-    out <- data.frame(pmid                        = parsed$pmid,
-                      doi                         = parsed$doi,
-                      authors                     = parsed$authors,
-                      citation_count              = parsed$citation_count,
-                      citations_per_year          = parsed$citations_per_year,
-                      expected_citations_per_year = parsed$expected_citations_per_year,
-                      field_citation_rate         = parsed$field_citation_rate,
-                      is_research_article         = parsed$is_research_article,
-                      journal                     = parsed$journal,
-                      nih_percentile              = parsed$nih_percentile,
-                      relative_citation_ratio     = parsed$relative_citation_ratio,
-                      title                       = parsed$title,
-                      year                        = parsed$year)
+    out <- info$content
     return(out)
   }
 
@@ -65,14 +52,22 @@ to_dataframe <- function (info, error = FALSE) {
 #' @export
 get_metrics <- function (pmids) {
 
+  # split into chunks of 200 pmids ----------------------------
+  chunk_size = 200
+  n_iterations = ceiling(length(pmids) / chunk_size)
+  if (n_iterations > 1) pb = utils::txtProgressBar(label="Accessing iCite API:", style=3)
+
   # make empty dataframe to catch results ---------------------
   tempdat <- data.frame()
-  for (i in pmids) {
+  for (i in 0:(n_iterations - 1)) {
+    if (n_iterations > 1) utils::setTxtProgressBar(pb, i / (n_iterations - 1))
+    start = 1 + i * chunk_size
+    end = min(length(pmids), chunk_size * (i + 1))
     out <- tryCatch( {
-      to_dataframe(icite_api(i))
+      to_dataframe(icite_api(pmids[start:end]))
     },
     error = function (err) {
-      return(to_dataframe(i, error=TRUE))
+      return(to_dataframe(pmids[start:end], error=TRUE))
     })
     tempdat <- rbind(tempdat, out)
 
