@@ -2,6 +2,8 @@
 This is a resubmission. In this version I have:
 
 * Added some additional information to the error messagers
+* Updated the data returned by an api call to reflect icite version 2.0
+* changed the query method to allow batch submits of PMIDS
 
 ## Test environments
 * local OS X install, R 3.5.3
