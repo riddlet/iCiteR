@@ -20,18 +20,29 @@ to_dataframe <- function (info, error = FALSE) {
   # If there is an error, return NA's--------------------------
   if (error==TRUE) {
     out <- data.frame(pmid                        = info,
-                      doi                         = NA,
+                      year                        = NA,
+                      title                       = NA,
                       authors                     = NA,
+                      journal                     = NA,
+                      is_research_article         = NA,
+                      relative_citation_ratio     = NA,
+                      nih_percentile              = NA,
+                      human                       = NA,
+                      animal                      = NA,
+                      molecular_cellular          = NA,
+                      apt                         = NA,
+                      is_clinical                 = NA,
                       citation_count              = NA,
                       citations_per_year          = NA,
                       expected_citations_per_year = NA,
                       field_citation_rate         = NA,
-                      is_research_article         = NA,
-                      journal                     = NA,
-                      nih_percentile              = NA,
-                      relative_citation_ratio     = NA,
-                      title                       = NA,
-                      year                        = NA)
+                      provisional                 = NA,
+                      x_coord                     = NA,
+                      y_coord                     = NA,
+                      cited_by_clin               = NA,
+                      cited_by                    = NA,
+                      references                  = NA,
+                      doi                         = NA)
   }
 
 }
@@ -55,7 +66,8 @@ get_metrics <- function (pmids) {
   # split into chunks of 200 pmids ----------------------------
   chunk_size = 200
   n_iterations = ceiling(length(pmids) / chunk_size)
-  if (n_iterations > 1) pb = utils::txtProgressBar(label="Accessing iCite API:", style=3)
+  if (n_iterations > 1)
+    pb = utils::txtProgressBar(label = "Accessing iCite API:", style = 3)
 
   # make empty dataframe to catch results ---------------------
   tempdat <- data.frame()
