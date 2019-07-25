@@ -18,8 +18,8 @@ icite_api <- function (pmids) {
   }
 
   # construct the API query ----------------------------------
-  pth <- paste0('api/pubs?pmids=', paste(pmids_valid, collapse=","), "&format=csv")
-  url <- httr::modify_url('https://icite.od.nih.gov/', path=pth)
+  pth <- paste0('icite/api/pubs?pmids=', paste(pmids_valid, collapse=","), "&format=csv")
+  url <- httr::modify_url('https://itools-test.od.nih.gov/', path=pth)
   resp <- httr::GET(url)
 
   # If csv is returned, parse it ----------------------------
