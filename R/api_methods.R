@@ -32,7 +32,7 @@ icite_api <- function(pmids) {
         iCite API request failed [%s] : %s\n\n
         Check your pubmed ID. iCite provides citation data back to 1995, and
         recent papers may not be available. See https://icite.od.nih.gov/stats
-        and https://icite.od.nih.gov/help for details of the available data.
+        and https://icite.od.nih.gov/user_guide?page_id=ug_overview for details of the available data.
         ",
                 httr::status_code(resp), parsed$error)
         } else {
