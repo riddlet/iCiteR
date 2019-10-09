@@ -13,7 +13,7 @@ icite_api(pmids)
 If the call runs without error, the output is a simple S3 object
 }
 \description{
-\code{icite_api} returns the parsed results of a single call to the iCite api
+\code{icite_api} returns the parsed results of a single call to the iCite API
 }
 \examples{
 dat <- icite_api('27599104')

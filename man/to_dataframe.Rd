@@ -4,12 +4,16 @@
 \alias{to_dataframe}
 \title{Converts icite_api information into a dataframe}
 \usage{
-to_dataframe(info, error = FALSE)
+to_dataframe(info, error = FALSE, call_type = "pmid")
 }
 \arguments{
 \item{info}{S3. The S3 object returned from \code{icite_api}}
 
-\item{error}{logical. Indicates whether the \code{icite_api} call resulted in an error.}
+\item{error}{logical. Indicates whether the \code{icite_api} call resulted
+in an error.}
+
+\item{call_type}{character. Indicates whether the data is from a call to
+\code{icite_api} (`pmid`) or \code{icite_search} (`search`)}
 }
 \value{
 All values from the icite_api reformatted into a dataframe.

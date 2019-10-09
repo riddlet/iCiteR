@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_metrics.R
 \name{get_metrics}
 \alias{get_metrics}
-\title{takes a vector of PMIDs and returns the icite information for them.}
+\title{takes a vector of PMIDs and returns the iCite information for them.}
 \usage{
 get_metrics(pmids)
 }
@@ -10,13 +10,12 @@ get_metrics(pmids)
 \item{pmids}{character. A vector of pubmed IDs}
 }
 \value{
-All values from the icite_api reformatted into a dataframe.
+All values from the iCite API reformatted into a dataframe.
 see \url{https://icite.od.nih.gov/api} for details.
 }
 \description{
-\code{get_metrics} is the main function for iCiteR. It takes a vector
-of character pubmed ids and returns a dataframe of the information yielded
-by the icite api.
+\code{get_metrics} takes a vector of character pubmed ids and returns a
+dataframe of the information yielded by the iCite API.
 }
 \examples{
 get_metrics('27599104')
