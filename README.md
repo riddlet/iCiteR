@@ -205,7 +205,7 @@ icite_api('42')
 It is worth noting that the iCite database presently goes back to 1995.
 Earlier papers will not have any data associated with them. Also, recent
 papers may not be available. See <https://icite.od.nih.gov/stats> and
-<https://icite.od.nih.gov/help> for details of the iCite system that
+<https://icite.od.nih.gov/user_guide?page_id=ug_overview> for details of the iCite system that
 this package works with.
 
 ### search\_metrics

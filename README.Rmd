@@ -70,7 +70,7 @@ If you are having trouble accessing the data for a particular PMID, the `icite_a
 icite_api('42')
 ```
 
-It is worth noting that the iCite database presently goes back to 1995. Earlier papers will not have any data associated with them. Also, recent papers may not be available. See https://icite.od.nih.gov/stats and https://icite.od.nih.gov/help for details of the iCite system that this package works with.
+It is worth noting that the iCite database presently goes back to 1995. Earlier papers will not have any data associated with them. Also, recent papers may not be available. See https://icite.od.nih.gov/stats and https://icite.od.nih.gov/user_guide?page_id=ug_overview for details of the iCite system that this package works with.
 
 ### search_metrics
 If you do not have a set of PMIDS you are interested in, then `get_metrics` may not seem to provide much use to you. Fortunately, the iCite API also provides a means of accessing data via some more general query parameters. In particular, you can ask for data from a given year, or from PMIDS that are above a certain value. This functionality is accessed with the `search_metrics` function.
