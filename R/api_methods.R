@@ -14,7 +14,7 @@ icite_api <- function(pmids) {
 
     # construct the API query ----------------------------------
     pth <- construct_query(query_type='pmid', pmids=pmids)
-    url <- httr::modify_url("https://itools-test.od.nih.gov/", path = pth)
+    url <- httr::modify_url("https://icite.od.nih.gov/", path = pth)
     resp <- httr::GET(url)
 
     # If csv is returned, parse it ----------------------------
@@ -72,13 +72,13 @@ construct_query <- function(query_type = 'pmid', pmids = NA,
       stop("No valid pubmed IDs detected. Please provide integer values, or
          their character representation. Try: 27599104")
     }
-    pth <- paste0("icite/api/pubs?pmids=",
+    pth <- paste0("api/pubs?pmids=",
                   paste(pmids_valid, collapse = ","), "&format=csv")
 
   } else {
 
     # construct the API query ----------------------------------
-    pth <- 'icite/api/pubs?'
+    pth <- 'api/pubs?'
     first <- TRUE
 
     # need to keep track of which is first & prepend '&' to subsequent args ---
@@ -134,7 +134,7 @@ icite_search <- function(year=NA, offset=NA, limit=NA) {
   # send the request ----------------------------------------
   pth <- construct_query(query_type='search', year=year,
                          offset=offset, limit=limit)
-  url <- httr::modify_url("https://itools-test.od.nih.gov/", path = pth)
+  url <- httr::modify_url("https://icite.od.nih.gov/", path = pth)
   resp <- httr::GET(url)
 
   # If csv is returned, parse it ----------------------------
