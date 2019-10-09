@@ -1,4 +1,4 @@
-context('test_return_dataframe.R')
+context('testing get_metrics')
 
 test_that('api call produces dataframe', {
   out1 <- get_metrics('27599104')
