@@ -1,9 +1,10 @@
 #' iCiteR: A package for retrieving citation data from the NIH's iCite API
 #'
-#' The iCiteR package provides one primary function: get_metrics()
-#' Users wanting to explore the output of the iCite API in more detail may
-#' also be interested in the icite_api() function, which provides slightly
-#' more informative error messages, but can only handle one PMID at a time.
+#' The iCiteR package provides a set of functions to facilitate interaction
+#' with the iCite API. The primary functions are get_metrics() and
+#' search_metrics(). The former is used when the user has a known set of PMIDs
+#' and wishes to obtain information about those IDs. The latter is used for
+#' getting data fromm the iCite API, given a set of search parameters.
 #'
 #'
 #' @docType package
