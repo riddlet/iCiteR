@@ -3,4 +3,6 @@
 S3method(print,icite_api)
 export(get_metrics)
 export(icite_api)
+export(icite_search)
+export(search_metrics)
 importFrom(utils,str)
