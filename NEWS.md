@@ -1,4 +1,4 @@
-# iCiteR 0.2.0.9000
+# iCiteR 0.2.0
 
 - Added more informative error messaging and adjusted the vignettes/readme
 - Updated get_metrics to obtain multiple entries on one request (#1 bihutchins)
