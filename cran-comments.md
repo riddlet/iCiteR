@@ -1,13 +1,6 @@
-## Resubmission
-This is a resubmission. In this version I have:
-
-* Added some additional information to the error messagers
-* Updated the data returned by an api call to reflect icite version 2.0
-* changed the query method to allow batch submits of PMIDS
-
 ## Test environments
-* local OS X install, R 3.5.3
-* ubuntu 14.04.5 (on travis-ci), R 3.6
+* local OS X install, R 3.6.0
+* ubuntu 16.04.6 (on travis-ci), R 3.6.1
 * win-builder (devel and release)
 
 ## R CMD check results
@@ -18,14 +11,8 @@ There was 1 NOTE:
 * checking CRAN incoming feasibility ... NOTE
 Maintainer: 'Travis Riddle <travis.riddle@nih.gov>'
 
-New submission
-
 Possibly mis-spelled words in DESCRIPTION:
-  NIH's (2:30, 5:43)
-  api (7:13)
-  iCite (2:36, 5:49, 7:7)
-  pubmed (6:21)
-
+  translational (8:28)
 
 ## Downstream dependencies
-There are currently no downstreatm dependencies for this package.
+There are currently no downstream dependencies for this package.
