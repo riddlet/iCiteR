@@ -67,7 +67,7 @@ print(dat)
 If you are having trouble accessing the data for a particular PMID, the `icite_api` function will also return somewhat more informative error messages (development version only):
 
 ```{r example4, error=TRUE}
-icite_api('42')
+icite_api('42a')
 ```
 
 It is worth noting that the iCite database presently goes back to 1995. Earlier papers will not have any data associated with them. Also, recent papers may not be available. See https://icite.od.nih.gov/stats and https://icite.od.nih.gov/user_guide?page_id=ug_overview for details of the iCite system that this package works with.

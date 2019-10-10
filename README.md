@@ -53,7 +53,6 @@ other data returned by the iCite API as follows
 
 ``` r
 library(iCiteR)
-#> Loading iCiteR
 get_metrics('27599104')
 #>       pmid year
 #> 1 27599104 2016
@@ -173,40 +172,17 @@ If you are having trouble accessing the data for a particular PMID, the
 messages (development version only):
 
 ``` r
-icite_api('42')
-#> <iCite request: api/pubs?pmids=42&format=csv>
-#> 'data.frame':    1 obs. of  24 variables:
-#>  $ pmid                       : int 42
-#>  $ year                       : int 1975
-#>  $ title                      : chr "A competitive labeling method for the determination of the chemical properties of solitary functional groups in proteins."
-#>  $ authors                    : chr "R G Duggleby, H Kaplan"
-#>  $ journal                    : chr "Biochemistry"
-#>  $ is_research_article        : chr "Yes"
-#>  $ relative_citation_ratio    : logi NA
-#>  $ nih_percentile             : logi NA
-#>  $ human                      : num 0
-#>  $ animal                     : num 0
-#>  $ molecular_cellular         : num 1
-#>  $ apt                        : num 0.05
-#>  $ is_clinical                : chr "No"
-#>  $ citation_count             : int 11
-#>  $ citations_per_year         : num 0.25
-#>  $ expected_citations_per_year: logi NA
-#>  $ field_citation_rate        : num 2.86
-#>  $ provisional                : chr "No"
-#>  $ x_coord                    : num -0.866
-#>  $ y_coord                    : num -0.5
-#>  $ cited_by_clin              : logi NA
-#>  $ cited_by                   : chr "3099757 7397107 7149255 3135412 6365082 7115297 2095202 10469490 7030309 7417503 3994995"
-#>  $ references                 : chr "4944073 4204227 5764436 5423263 4587927 235280 6055183 5415110 5158490 804314 6022849 4656796 5777784 14314361 "| __truncated__
-#>  $ doi                        : chr "10.1021/bi00694a023"
+icite_api('42a')
+#> Warning in stats::na.omit(as.integer(pmids)): NAs introduced by coercion
+#> Error in construct_query(query_type = "pmid", pmids = pmids): No valid pubmed IDs detected. Please provide integer values, or
+#>          their character representation. Try: 27599104
 ```
 
 It is worth noting that the iCite database presently goes back to 1995.
 Earlier papers will not have any data associated with them. Also, recent
 papers may not be available. See <https://icite.od.nih.gov/stats> and
-<https://icite.od.nih.gov/user_guide?page_id=ug_overview> for details of the iCite system that
-this package works with.
+<https://icite.od.nih.gov/user_guide?page_id=ug_overview> for details of
+the iCite system that this package works with.
 
 ### search\_metrics
 
