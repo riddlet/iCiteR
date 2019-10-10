@@ -1,3 +1,7 @@
+# iCiteR 0.2.0.9000
+
+- Fixed the error example in the vignette & readme
+
 # iCiteR 0.2.0
 
 - Added more informative error messaging and adjusted the vignettes/readme
