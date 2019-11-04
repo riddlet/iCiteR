@@ -17,30 +17,26 @@ icite_api <- function(pmids) {
     url <- httr::modify_url("https://icite.od.nih.gov/", path = pth)
     resp <- httr::GET(url)
 
-    # If csv is returned, parse it ----------------------------
-    if (httr::http_type(resp) != "text/csv") {
-        stop("API did not return csv.", call. = FALSE)
-    }
-    parsed <- utils::read.csv(textConnection(
-      httr::content(resp, "text", encoding = "UTF-8")),
-      stringsAsFactors = F, encoding = "UTF-8")
-
     # If the request fails, print the reason -------------------
     if (httr::http_error(resp)) {
-        stop(if (resp$status_code == 404) {
-            sprintf("
+      stop(if (resp$status_code == 404) {
+        sprintf("
         iCite API request failed [%s] : %s\n\n
         Check your pubmed ID. iCite provides citation data back to 1995, and
         recent papers may not be available. See https://icite.od.nih.gov/stats
         and https://icite.od.nih.gov/user_guide?page_id=ug_overview for details of the available data.
         ",
                 httr::status_code(resp), parsed$error)
-        } else {
-            sprintf("iCite API request failed [%s]\n%s",
-                    httr::status_code(resp), parsed$error)
-            call. = FALSE
-        })
+      } else {
+        sprintf("iCite API request failed [%s]\n%s",
+                httr::status_code(resp), parsed$error)
+        call. = FALSE
+      })
     }
+
+    parsed <- utils::read.csv(textConnection(
+      httr::content(resp, "text", encoding = "UTF-8")),
+      stringsAsFactors = F, encoding = "UTF-8")
 
     # structure the content of the response --------------------
     structure(list(content = parsed, path = pth, response = resp), class = "icite_api")
