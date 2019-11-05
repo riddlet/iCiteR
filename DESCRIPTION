@@ -15,7 +15,6 @@ LazyData: true
 BugReports: https://github.com/riddlet/iCiteR/issues
 Imports: 
     httr (>= 1.4),
-    jsonlite (>= 1.6)
 Suggests: 
     testthat,
     knitr,
