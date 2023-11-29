@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 [![Build Status](https://travis-ci.org/riddlet/iCiteR.svg?branch=master)](https://travis-ci.org/riddlet/iCiteR)
+[![R-CMD-check](https://github.com/riddlet/iCiteR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/riddlet/iCiteR/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The iCiteR package is a minimal R package designed to help users retrieve data from the NIH's [iCite API](https://icite.od.nih.gov/api). This includes the relative citation ratio, which you can read about [here](https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1002541).
