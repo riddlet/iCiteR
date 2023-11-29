@@ -1,6 +1,5 @@
 ^iCiteR\.Rproj$
 ^\.Rproj\.user$
-^\.travis\.yml$
 ^README\.Rmd$
 ^cran-comments.md
 ^CRAN-RELEASE$
