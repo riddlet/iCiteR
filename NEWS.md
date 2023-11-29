@@ -1,3 +1,8 @@
+# iCiteR 0.2.2
+
+- Added Dustin Moraczewski as author and maintainer. Revised Travis Riddle to only author.
+- Adjusted tests to account for a new field returned from the iCite API (last_modified)
+
 # iCiteR 0.2.1
 
 - Fixed the error example in the vignette & readme

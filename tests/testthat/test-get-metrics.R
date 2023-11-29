@@ -10,7 +10,7 @@ test_that('api call produces dataframe', {
 test_that('data frame is expected shape', {
   out1 <- get_metrics('27599104')
   expect_equal(dim(out1)[1], 1)
-  expect_equal(dim(out1)[2], 24)
+  expect_equal(dim(out1)[2], 25)
 })
 
 test_that('get_metrics can handle multiple ids', {
