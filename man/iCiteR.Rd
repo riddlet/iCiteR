@@ -3,7 +3,6 @@
 \docType{package}
 \name{iCiteR}
 \alias{iCiteR}
-\alias{iCiteR-package}
 \title{iCiteR: A package for retrieving citation data from the NIH's iCite API}
 \description{
 The iCiteR package provides a set of functions to facilitate interaction

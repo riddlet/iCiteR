@@ -1,3 +1,8 @@
+# iCiteR 0.2.3
+
+- Adjusted the DESCRIPTION language
+- Added a value tag to the print.icite_api function
+
 # iCiteR 0.2.2
 
 - Added Dustin Moraczewski as author and maintainer. Revised Travis Riddle to only author.

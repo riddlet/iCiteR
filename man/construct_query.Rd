@@ -4,8 +4,13 @@
 \alias{construct_query}
 \title{create the url extension for an iCite API call}
 \usage{
-construct_query(query_type = "pmid", pmids = NA, year = NA,
-  offset = NA, limit = NA)
+construct_query(
+  query_type = "pmid",
+  pmids = NA,
+  year = NA,
+  offset = NA,
+  limit = NA
+)
 }
 \arguments{
 \item{query_type}{character. The type of query being constructed. Limited to

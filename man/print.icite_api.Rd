@@ -11,6 +11,9 @@
 
 \item{...}{Additional arguments that would be passed to \code{print}}
 }
+\value{
+Prints details of the request, and the content returned from the \code{icite_api} function.
+}
 \description{
 \code{print.icite_api} prints the data returned from the icite_api function
 }

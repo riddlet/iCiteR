@@ -160,6 +160,7 @@ icite_search <- function(year=NA, offset=NA, limit=NA) {
 #' @param x S3. The S3 object yielded from \code{icite_api}
 #' @param ... Additional arguments that would be passed to \code{print}
 #'
+#' @return Prints details of the request, and the content returned from the \code{icite_api} function.
 #' @examples
 #' dat <- icite_api('27599104')
 #' print(dat)
